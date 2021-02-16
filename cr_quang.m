@@ -16,7 +16,7 @@ X = (X - mean_X) ./ std_X;
 Y = data(:,1);
 Y = Y{:,:};
 
-%% cross-validate: h1 for RH, h2 for T
+%% cross-validate: h1 for RH, r for T
 
 N_grid = 30;
 h1_grid = linspace(0.05, 0.3, N_grid);
@@ -45,8 +45,8 @@ optimal_h1 = h1_grid(h1_index);
 optimal_r = r_grid(r_index);
 optimal_h2 = optimal_h1 / optimal_r;
 
-fprintf('Select h1= %f, r = %f, h2 = %f, n = %f', optimal_h1, optimal_r, optimal_h2, count)
+fprintf('Select h1= %f, r = %f, n = %f', optimal_h1, optimal_r, count)
 
-optimal_h = [optimal_h1, optimal_h2];
+optimal_hr = [optimal_h1, optimal_r];
 
 save('optimal_h.mat', 'optimal_h')
