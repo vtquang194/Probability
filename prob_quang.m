@@ -1,8 +1,8 @@
 
 %% compute probability
 
-optimal_h = [0.067 , 2.334];
-[mu, sigma] = kernel_regression_with_var(X, X, Y, optimal_h);
+optimal_hr = [0.067 , 2.334];
+[mu, sigma] = kernel_regression_with_var(X, X, Y, optimal_hr);
 
 
 exceeding_Y = 0.7;
@@ -16,7 +16,7 @@ for temp=temperatures
     
     X_test = (X_test - mean_X) ./ std_X;
     
-    [mu_test, sigma_test] = kernel_regression_with_var(X_test, X, Y, optimal_h);
+    [mu_test, sigma_test] = kernel_regression_with_var(X_test, X, Y, optimal_hr);
     input_to_F = (exceeding_Y - mu_test) ./sqrt(sigma_test);
     
     prob = zeros(1,100);
