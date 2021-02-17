@@ -35,7 +35,7 @@ end
 
 save('cross_validate_result.mat', 'h1_grid', 'r_grid', 'loss')
 
-[xaxis, yaxis] = meshgrid(h1_grid, r_grid);
+[xaxis, yaxis] = meshgrid(r_grid, h1_grid);
 mesh(xaxis, yaxis, loss);
 
 [min_value, arg_min] = min(loss(:));
